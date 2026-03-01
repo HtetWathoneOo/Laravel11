@@ -29,7 +29,6 @@ class ProductController extends Controller
     }
     public function list(Request $request)
     {
-        $products = Product::all();
         $search = $request->input('search');
         $products = Product::when($search, function($query, $search) {
             return $query->where('name', 'like', "%{$search}%");
@@ -37,4 +36,26 @@ class ProductController extends Controller
         return view('product.list', compact('products'));
     }
 
+    public function edit(Product $product)
+    {
+        return view('product.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'qty' => 'required|numeric',
+            'price' => 'required|decimal:0,2',
+            'description' => 'nullable',
+        ]);
+        $product->update($data);
+        return redirect()->route('product.index')->with('success', 'Product updated successfully.');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
+    }
 }
