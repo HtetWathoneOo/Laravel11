@@ -27,3 +27,6 @@ use App\Http\Controllers\ProductController;
 Route::get('/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/list', [ProductController::class, 'list'])->name('product.list');
+
+Route::get('/deleteProduct', [ProductController::class, 'index'])->name('product.index');
+Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
