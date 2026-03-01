@@ -26,9 +26,13 @@ class ProductController extends Controller
         Product::create($data);
         return redirect()->route('product.list');
     }
-    public function list()
+    public function list(Request $request)
     {
         $products = Product::all();
+        $search = $request->input('search');
+        $products = Product::when($search, function($query, $search) {
+            return $query->where('name', 'like', "%{$search}%");
+        })->get();
         return view('product.list', compact('products'));
     }
 
