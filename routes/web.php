@@ -24,9 +24,14 @@ use App\Http\Controllers\HelloController;
 Route::get('/hello', [HelloController::class, 'index']);
 
 use App\Http\Controllers\ProductController;
+//Create
 Route::get('/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+//list
 Route::get('/list', [ProductController::class, 'list'])->name('product.list');
-
+//Delete
 Route::get('/deleteProduct', [ProductController::class, 'index'])->name('product.index');
 Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+//Edit
+Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
