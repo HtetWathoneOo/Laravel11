@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->name('dashboard');
 Route::get('/hi', function () {
     return view('hello');
 });
@@ -24,21 +24,19 @@ use App\Http\Controllers\HelloController;
 Route::get('/hello', [HelloController::class, 'index']);
 
 use App\Http\Controllers\ProductController;
+
 //Create
 Route::get('/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+
 //list
 Route::get('/list', [ProductController::class, 'list'])->name('product.list');
-<<<<<<< HEAD
-//Delete
-Route::get('/deleteProduct', [ProductController::class, 'index'])->name('product.index');
-=======
 
+//Delete
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
-Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
->>>>>>> 2b8f57bac853718526ceaa2c5b0b5815ac3f3395
 Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+
 //Edit
 Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
 Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');

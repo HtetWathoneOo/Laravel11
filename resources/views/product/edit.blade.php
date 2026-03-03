@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b8f57bac853718526ceaa2c5b0b5815ac3f3395
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,73 +17,18 @@
         }
 
         .form-container {
-<<<<<<< HEAD
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-=======
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
->>>>>>> 2b8f57bac853718526ceaa2c5b0b5815ac3f3395
             width: 400px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease-out forwards;
         }
 
         h1 {
             text-align: center;
-<<<<<<< HEAD
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 6px;
-            color: #555;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            height: 80px;
-            resize: vertical;
-        }
-
-        button {
-            width: 100%;
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .status-message {
-            color: green;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-=======
             margin-bottom: 20px;
             color: #333;
         }
@@ -145,37 +86,24 @@
         .btn-back:hover {
             color: #007BFF;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
->>>>>>> 2b8f57bac853718526ceaa2c5b0b5815ac3f3395
 <body>
     <div class="form-container">
         <h1>Edit Product</h1>
 
-<<<<<<< HEAD
-        <!-- @if(session('status'))
-            <div class="status-message">{{ session('status') }}</div>
-        @endif -->
-
-        <form action="{{ route('product.update', $product->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-
-            <label>Name:</label>
-            <input type="text" name="name" value="{{ $product->name }}" required>
-
-            <label>Quantity:</label>
-            <input type="text" name="qty" value="{{ $product->qty }}" required>
-
-            <label>Price:</label>
-            <input type="text" name="price" value="{{ $product->price }}" required>
-
-            <label>Description:</label>
-            <textarea name="description">{{ $product->description }}</textarea>
-
-            <button type="submit">Update Product</button>
-=======
         <form method="POST" action="{{ route('product.update', $product->id) }}">
             @csrf
             @method('PUT')
@@ -202,8 +130,8 @@
 
             <input type="submit" value="Update Product">
             <a href="{{ route('product.index') }}" class="btn-back">Back to Products</a>
->>>>>>> 2b8f57bac853718526ceaa2c5b0b5815ac3f3395
         </form>
     </div>
 </body>
 </html>
+
