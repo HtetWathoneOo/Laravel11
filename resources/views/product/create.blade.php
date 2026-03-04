@@ -4,77 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Product</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 400px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-        }
-
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input[type="text"]:focus {
-            border-color: #007BFF;
-            box-shadow: 0 0 5px rgba(0,123,255,0.5);
-        }
-
-        input[type="submit"] {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #218838;
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="center-page">
     <div class="form-container">
         <h1>Create Product</h1>
 
